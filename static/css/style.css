@@ -11,3 +11,13 @@
 .flashes h4 {
     line-height: 2;
 }
+
+footer {
+    position: absolute;
+	text-align: center;
+	width: 100%;
+}
+
+footer a:hover {
+	color: green;
+}

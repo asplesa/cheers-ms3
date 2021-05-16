@@ -8,6 +8,7 @@
         integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
     {% block styles %}
     {% endblock %}
     <title>Cheers</title>
@@ -70,6 +71,31 @@
         {% block content %}
         {% endblock %}
     </main>
+
+<!-- Footer -->
+      <footer>
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 py-3">
+                  <div class="mb-5 text-center">
+                     <a class="fb-icon" href="https://www.facebook.com/" target="_blank">
+                     <i class="fab fa-facebook-f fa-lg mr-md-5 mr-3"> </i>
+                     </a>
+                     <a class="tw-icon" href="https://www.twitter.com/" target="_blank">
+                     <i class="fab fa-twitter fa-lg mr-md-5 mr-3"> </i>
+                     </a>
+                     <a class="ins-icon" href="https://www.instagram.com/" target="_blank">
+                     <i class="fab fa-instagram fa-lg mr-md-5 mr-3"> </i>
+                     </a>
+                     <a class="pin-icon" href="https://www.pinterest.com/" target="_blank">
+                     <i class="fab fa-pinterest fa-lg"> </i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+            <p>Copyright &copy; Cheers 2021</p>
+         </div>
+      </footer>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
