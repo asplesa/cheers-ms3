@@ -127,7 +127,7 @@ def cocktail(cocktail_id):
     return render_template("cocktail.html", cocktail=cocktail)
 
 
-@app.route("/add_cocktail", , methods=["GET", "POST"])
+@app.route("/add_cocktail", methods=["GET", "POST"])
 def add_cocktail():
     if request.method == "POST":
         cocktail = {
