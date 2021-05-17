@@ -127,8 +127,22 @@ def cocktail(cocktail_id):
     return render_template("cocktail.html", cocktail=cocktail)
 
 
-@app.route("/add_cocktail")
+@app.route("/add_cocktail", , methods=["GET", "POST"])
 def add_cocktail():
+    if request.method == "POST":
+        cocktail = {
+            "category_name": request.form.get("category_name"),
+            "cocktail_name": request.form.get("cocktail_name"),
+            "cocktail_description": request.form.get("cocktail_description"),
+            "cockail_serving": request.form.get("cockail_serving"),
+            "cocktail_ingredients": request.form.getlist("cocktail_ingredients"),
+            "cocktail_method": request.form.getlist("cocktail_method"),
+            "created_by": session["user"]
+        }
+        mongo.db.tasks.insert_one(cocktail)
+        flash("Cocktail Added!")
+        return redirect(url_for("get_cocktails"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_cocktail.html", categories=categories)
 

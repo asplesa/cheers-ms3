@@ -5,7 +5,7 @@
     <h3 class="light green-text text-darken-4 center-align">Add Cocktail</h3>
 
     <div class="row">
-        <form class="col s12" method="POST" action="">
+        <form class="col s12" method="POST" action="{{ url_for('add_cocktail') }}">
             
              <!-- Cocktail Name -->
             <div class="row">
@@ -78,8 +78,8 @@
             <!-- Add Cocktail button/redirect to cocktails -->
             <div class="row center-align">
                <div class="col s12">
-                  <button class="btn waves-effect waves-light present-buttn" type="submit" name="action">Add Cocktail</button>
-                  <a href="{{ url_for('get_cocktails') }}" class="back  btn btn-cancel" >Back to Cocktails</a>
+                  <button class="btn waves-effect waves-light present-buttn" type="submit">Add Cocktail</button>
+                  <a href="{{ url_for('get_cocktails') }}" class="back btn btn-cancel" >Back to Cocktails</a>
                </div>
             </div>
          </div>
