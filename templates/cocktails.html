@@ -1,15 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h3> All Cocktails</h3>
 
 
-    {% for cocktail in cocktails %}
-        {{ cocktail.cocktail_name }}<br>
-        {{ cocktail.category_name }}<br>
-        {{ cocktail.cocktail_description }}<br>
-        {{ cocktail.cockail_serving }}<br>
-        {{ cocktail.cocktail_ingredients }}<br>
-        {{ cocktail.cocktail_method }}<br>
-    {% endfor %}
 
-{% endblock %}    
+
+<!-- Cocktails Cards-->
+{% if cocktails|length > 0 %}
+<div class="row" style="width:90%;">
+   {% for cocktail in cocktails %}
+   <div class="col s12 m6 l4">
+      <div class="card">
+         <div class="card-image">
+            <img src="{{ cocktail.cocktails_image }}"
+               onerror="this.onerror=null;this.src='../static/images/cocktail_default.jpg';"
+               alt="{{ cocktails.cocktail_name }}">
+         </div>
+
+         <!-- Cocktail Name -->
+         <div class="card-content">
+            <a href="{{ url_for('cocktail', cocktail_id=cocktail._id) }}">
+               <h6 class="cocktail-name">{{ cocktail.cocktail_name }}</h6>
+            </a>
+            <h6>{{ cocktail.category_name }}</h6>
+            <div class="row">
+
+               <!-- Access Cocktail Button-->
+               <div class="card-action">
+                  <a id="Make it!" href="{{ url_for('cocktail', cocktail_id=cocktail._id) }}">Make it!</a>
+               </div>
+
+              
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+   {% endfor %}
+</div>
+{% else %}
+
+<h4 class="center-align">No Result Found</h4>
+{% endif %}
+{% endblock %}

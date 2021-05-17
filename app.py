@@ -30,11 +30,12 @@ def index():
     return render_template("index.html", cocktails=cocktails)
 
 
+# ======== COCKTAILS PAGE ======== #
 
 @app.route("/")
 @app.route("/get_cocktails")
 def get_cocktails():
-    cocktails = mongo.db.cocktails.find()
+    cocktails = list(mongo.db.cocktails.find())
     return render_template("cocktails.html", cocktails=cocktails)
 
 # ======== REGISTER PAGE ======== #
@@ -114,6 +115,16 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+# ======== COCKTAIL PAGE ======== #
+@app.route("/cocktail/<cocktail_id>")
+def cocktail(cocktail_id):
+
+
+    cocktail = mongo.db.cocktails.find_one({"_id": ObjectId(cocktail_id)})
+    print(recipe)
+    return render_template("cocktail.html", cocktail=cocktail)
 
 
 if __name__ == "__main__":
