@@ -18,11 +18,11 @@
             <!-- Select Cocktail Category -->
             <div class="row">
                <div class="input-field col s12">
-                  <select name="category_name" id="category_name" class="form-control validate" required>
-                     <option value="" selected disabled>Select Category</option>
+                  <select name="category_name" id="category_name" class="validate" required>
+                     <option value="" disabled selected>Choose Category</option>
                      {% for category in categories %}
                             <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                        {% endfor %}
+                     {% endfor %}
                   </select>
                   <label for="category_name">Cocktail Category</label>
                </div>
@@ -31,13 +31,13 @@
              <!-- Cocktail description -->
             <div class="input-field col s12">
                 <label for="cocktail_description">Description</label>
-                <input type="text" class="form-control" id="cocktail_description" name="cocktail_description"
+                <input type="text" class="form-control validate" id="cocktail_description" name="cocktail_description"
                     aria-describedby="cocktail_description" maxlength="130" required>
             </div>
 
             <!-- Cocktail Image -->
             <div class="input-field col s12">
-                <input type="text" class="form-control" name="cocktail_img" id="cocktail_img"
+                <input type="text" class="form-control validate" name="cocktail_img" id="cocktail_img"
                     aria-describedby="cocktail_img" required>
                 <small class="form-text text-muted">Cocktail Picture hosted on a website</small>
                 <label for="cocktail_img">Image URL</label>
@@ -52,7 +52,7 @@
 
             <!-- Cocktail Serving -->
                 <div class="input-field col s12">
-                    <input type="text" class="form-control" name="cocktail_serv" id="cocktail_serv"
+                    <input type="text" class="form-control validate" name="cocktail_serv" id="cocktail_serv"
                         aria-describedby="cocktail_serv" placeholder="Ex:2" required>
                         <label for="cocktail_serv">Servings</label>
                     </div>
@@ -61,14 +61,14 @@
             <!-- Cocktail ingredients -->
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea class="form-control" id="cocktail_ingredients" name="cocktail_ingredients" rows="3"
+                    <textarea class="form-control validate" id="cocktail_ingredients" name="cocktail_ingredients" rows="3"
                     placeholder="Each ingredient should be in its own line." required></textarea>
                     <label for="cocktail_ingredients">Ingredients</label>
                 </div>        
 
            <!-- Cocktail Instructions -->
                 <div class="input-field col s12">
-                    <textarea class="form-control" id="cocktail_instructions" name="cocktail_instructions" rows="3"
+                    <textarea class="form-control validate" id="cocktail_instructions" name="cocktail_instructions" rows="3"
                     placeholder="Put each step in a new line." required></textarea>
                     <label for="cocktail_instructions">Instructions</label>
                 </div>
