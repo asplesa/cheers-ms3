@@ -10,7 +10,7 @@
              <!-- Cocktail Name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input type="text" class="form-control" id="cocktail_name" name="cocktail_name" aria-describedby="cocktail_name"
+                    <input type="text" class="form-control validate id="cocktail_name" name="cocktail_name" aria-describedby="cocktail_name"
                     maxlength="50" required>
                     <label for="cocktail_name">Cocktail Name</label>
                 </div>
@@ -18,7 +18,7 @@
             <!-- Select Cocktail Category -->
             <div class="row">
                <div class="input-field col s12">
-                  <select name="category_name" id="category_name" class="validate" required>
+                  <select name="category_name" id="category_name" class=" form-control validate" required>
                      <option value="" disabled selected>Choose Category</option>
                      {% for category in categories %}
                             <option value="{{ category.category_name }}">{{ category.category_name }}</option>
