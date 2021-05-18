@@ -5,7 +5,6 @@
 
 
 
-
 <!-- Cocktails Cards-->
 {% if cocktails|length > 0 %}
 <div class="row" style="width:90%;">
@@ -13,9 +12,9 @@
    <div class="col s12 m6 l4">
       <div class="card">
          <div class="card-image">
-            <img src="{{ cocktail.cocktails_image }}"
+            <img src="{{ cocktail.cocktail_image }}"
                onerror="this.onerror=null;this.src='../static/images/cocktail_default.jpg';"
-               alt="{{ cocktails.cocktail_name }}">
+               alt="{{ cocktail.cocktail_name }}">
          </div>
 
          <!-- Cocktail Name -->

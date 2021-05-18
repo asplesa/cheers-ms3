@@ -10,7 +10,7 @@
              <!-- Cocktail Name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input type="text" class="form-control validate id="cocktail_name" name="cocktail_name" aria-describedby="cocktail_name"
+                    <input type="text" class="form-control validate" id="cocktail_name" value="{{ cocktail.cocktail_name }}" name="cocktail_name" aria-describedby="cocktail_name"
                     maxlength="50" required>
                     <label for="cocktail_name">Cocktail Name</label>
                 </div>
@@ -18,10 +18,14 @@
             <!-- Select Cocktail Category -->
             <div class="row">
                <div class="input-field col s12">
-                  <select name="category_name" id="category_name" class=" form-control validate" required>
-                     <option value="" disabled selected>Choose Category</option>
+                  <select name="category_name" id="category_name" class="form-control validate" required>
+                     <option value="" disabled>Choose Category</option>
                      {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% if category.category_name == cocktail.category_name %}
+                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                            {% else %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endif %}
                      {% endfor %}
                   </select>
                   <label for="category_name">Cocktail Category</label>
@@ -30,14 +34,14 @@
 
              <!-- Cocktail description -->
             <div class="input-field col s12">
-                <label for="cocktail_description">Description</label>
                 <input type="text" class="form-control validate" id="cocktail_description" name="cocktail_description"
-                    aria-describedby="cocktail_description" maxlength="130" required>
-            </div>
+                    aria-describedby="cocktail_description" maxlength="130" value="{{- cocktail.cocktail_description -}}" required>
+                    <label for="cocktail_description">Description</label>
+            </div>    
 
             <!-- Cocktail Image -->
             <div class="input-field col s12">
-                <input type="text" class="form-control validate" name="cocktail_img" id="cocktail_img"
+                <input type="text" class="form-control validate" value="{{ cocktail.cocktail_img }}"  name="cocktail_img" id="cocktail_img"
                     aria-describedby="cocktail_img" required>
                 <small class="form-text text-muted">Cocktail Picture hosted on a website</small>
                 <label for="cocktail_img">Image URL</label>
@@ -46,13 +50,13 @@
             <!-- Image Source -->
             <div class="row">
                <div class="input-field col s12">
-                  <input type="text" class="form-control validate" name="image_source" id="image_source"
+                  <input type="text" class="form-control validate" value="{{ cocktail.image_source }}" name="image_source" id="image_source"
                      aria-describedby="image_source" required>
                      <label for="image_source"> Website or Artist</label>
 
             <!-- Cocktail Serving -->
                 <div class="input-field col s12">
-                    <input type="text" class="form-control validate" name="cocktail_serv" id="cocktail_serv"
+                    <input type="text" class="form-control validate" value="{{ cocktail.cocktail_serv }}" name="cocktail_serv" id="cocktail_serv"
                         aria-describedby="cocktail_serv" placeholder="Ex:2" required>
                         <label for="cocktail_serv">Servings</label>
                     </div>
@@ -61,25 +65,27 @@
             <!-- Cocktail ingredients -->
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea class="form-control validate" id="cocktail_ingredients" name="cocktail_ingredients" rows="3"
-                    placeholder="Each ingredient should be in its own line." required></textarea>
+                    <textarea class="form-control validate" id="cocktail_ingredients" name="cocktail_ingredients" rows="3" 
+                    value="{{ cocktail.cocktail_ingredients }}" required>
+                    {{- cocktail.cocktail_ingredients -}}</textarea>
                     <label for="cocktail_ingredients">Ingredients</label>
                 </div>        
 
            <!-- Cocktail Instructions -->
                 <div class="input-field col s12">
-                    <textarea class="form-control validate" id="cocktail_instructions" name="cocktail_instructions" rows="3"
-                    placeholder="Put each step in a new line." required></textarea>
+                    <textarea class="form-control validate" id="cocktail_instructions" name="cocktail_instructions" rows="3" required>
+                    {{- cocktail.cocktail_instructions -}}
+                    </textarea>
                     <label for="cocktail_instructions">Instructions</label>
                 </div>
             </div>
           
            
-            <!-- Add Cocktail button/redirect to cocktails -->
+            <!-- Edit Cocktail button/cancel button (redirect to cocktails) -->
             <div class="row center-align">
                <div class="col s12">
-                  <button class="btn waves-effect waves-light present-buttn" type="submit">Edit Cocktail</button>
-                  <a href="{{ url_for('get_cocktails') }}" class="back btn btn-cancel" >Back to Cocktails</a>
+                  <button class="btn green waves-effect waves-light present-buttn" type="submit">Edit</button>
+                  <a href="{{ url_for('get_cocktails') }}" class="back green btn btn-cancel" >Cancel</a>
                </div>
             </div>
          </div>
