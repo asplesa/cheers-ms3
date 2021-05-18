@@ -123,7 +123,7 @@ def cocktail(cocktail_id):
 
 
     cocktail = mongo.db.cocktails.find_one({"_id": ObjectId(cocktail_id)})
-    print(recipe)
+    print(cocktail)
     return render_template("cocktail.html", cocktail=cocktail)
 
 
@@ -134,9 +134,9 @@ def add_cocktail():
             "category_name": request.form.get("category_name"),
             "cocktail_name": request.form.get("cocktail_name"),
             "cocktail_description": request.form.get("cocktail_description"),
-            "cockail_serving": request.form.get("cockail_serving"),
+            "cockail_serv": request.form.get("cockail_serv"),
             "cocktail_ingredients": request.form.getlist("cocktail_ingredients"),
-            "cocktail_method": request.form.getlist("cocktail_method"),
+            "cocktail_instructions": request.form.getlist("cocktail_instructions"),
             "created_by": session["user"]
         }
         mongo.db.cocktails.insert_one(cocktail)
@@ -146,10 +146,24 @@ def add_cocktail():
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_cocktail.html", categories=categories)
 
-# ------- Edit Recipe Page ------- #
+# ------- Edit Cocktail Page ------- #
 
 @app.route("/edit_cocktail/<cocktail_id>", methods=["GET", "POST"])
 def edit_cocktail(cocktail_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "cocktail_name": request.form.get("cocktail_name"),
+            "cocktail_description": request.form.get("cocktail_description"),
+            "cockail_serv": request.form.get("cockail_serv"),
+            "cocktail_ingredients": request.form.getlist("cocktail_ingredients"),
+            "cocktail_instructions": request.form.getlist("cocktail_instructions"),
+            "created_by": session["user"]
+        }
+        mongo.db.cocktails.update({"_id": ObjectId(cocktail_id)}, submit)
+        flash("Cocktail Updated!")
+        
+
     cocktail = mongo.db.cocktails.find_one({"_id": ObjectId(cocktail_id)}) 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_cocktail.html", cocktail=cocktail, categories=categories)

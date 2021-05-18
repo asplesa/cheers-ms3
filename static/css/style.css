@@ -21,3 +21,12 @@ footer {
 footer a:hover {
 	color: green;
 }
+
+/* ------- Cocktail cards  ------- */
+
+.card-image img {
+    margin-top: 10px;
+    height: 180px;
+    object-fit: cover;
+    width: 100%;
+}
