@@ -139,12 +139,20 @@ def add_cocktail():
             "cocktail_method": request.form.getlist("cocktail_method"),
             "created_by": session["user"]
         }
-        mongo.db.tasks.insert_one(cocktail)
+        mongo.db.cocktails.insert_one(cocktail)
         flash("Cocktail Added!")
         return redirect(url_for("get_cocktails"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_cocktail.html", categories=categories)
+
+# ------- Edit Recipe Page ------- #
+
+@app.route("/edit_cocktail/<cocktail_id>", methods=["GET", "POST"])
+def edit_cocktail(cocktail_id):
+    cocktail = mongo.db.cocktails.find_one({"_id": ObjectId(cocktail_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_cocktail.html", cocktail=cocktail, categories=categories)
 
 
 
