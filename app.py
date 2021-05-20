@@ -177,6 +177,12 @@ def delete_cocktail(cocktail_id):
     return redirect(url_for("get_cocktails"))
 
 
+# ------- Manage Categories Page ------- #
+@app.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    return render_template("categories.html", categories=categories)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
