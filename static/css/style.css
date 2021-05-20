@@ -30,3 +30,16 @@ footer a:hover {
     object-fit: cover;
     width: 100%;
 }
+
+/* ------- Search Funtion on All Cocktails page  ------- */
+
+.search-recipe {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.category-btns {
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+}

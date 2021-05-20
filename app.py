@@ -38,6 +38,24 @@ def get_cocktails():
     cocktails = list(mongo.db.cocktails.find())
     return render_template("cocktails.html", cocktails=cocktails)
 
+
+# ======== Search Cocktails Function ======== #
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    cocktails = list(mongo.db.cocktails.find({"$text": {"$search": query}}))
+    return render_template("cocktails.html", cocktails=cocktails)
+
+
+# ======== Search Cocktails By Category ======== #
+@app.route('/search_cocktails/<query>', methods=['GET', 'POST'])
+def search_cocktails(query):
+    if search:
+        cocktails = list(
+            mongo.db.cocktails.find({"category_name": query}))
+
+    return render_template("cocktails.html", cocktails=cocktails)
+
 # ======== REGISTER PAGE ======== #
 @app.route("/register", methods=["GET", "POST"])
 def register():

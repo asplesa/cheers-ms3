@@ -3,7 +3,33 @@
 
 <h3 class="light green-text text-darken-4 center-align"> All Cocktails</h3>
 
+<!-- Search Cocktail Function-->
+<div class="row card-panel green lighten-5 search-cocktail">
+   <form action="{{ url_for('search') }}" method="post" class="col s12">
+      <div class="row valign-wrapper center-align">
+         <div class="input-field col s12 m8">
+            <i class="fas fa-search prefix light-green-text text-darken-4"></i>
+            <input type="text" name="query" id="query" minlength="3" class="validate" placeholder="Search Cocktails"
+               required>
+            <a href="{{ url_for('get_cocktails') }}" class="btn reset-btn">Reset</a>
+            <button type="submit" class="btn search-btn">Search</button>
+         </div>
+      </div>
+   </form>
+</div>
 
+<!-- Buttons to Search Cocktails by Category -->
+<div class="row">
+   <div class="col category-btns center-align">
+      <a href="{{ url_for('get_cocktails') }}" class="btn">All</a>
+      <a href="{{ url_for('search_cocktails', query='Stirred') }}" class="btn">Stirred</a>
+      <a href="{{ url_for('search_cocktails', query='Sour') }}" class="btn">Sour</a>
+      <a href="{{ url_for('search_cocktails', query='Fizz') }}" class="btn">Fizz</a>
+      <a href="{{ url_for('search_cocktails', query='Frozen') }}" class="btn">Frozen</a>
+      <a href="{{ url_for('search_cocktails', query='Highballs') }}" class="btn">Highballs</a>
+      <a href="{{ url_for('search_cocktails', query='Non-Alcoholic') }}" class="btn">Non-Alcoholic</a>
+   </div>
+</div>
 
 <!-- Cocktails Cards-->
 {% if cocktails|length > 0 %}
@@ -47,6 +73,6 @@
 </div>
 {% else %}
 
-<h4 class="center-align">No Result Found</h4>
+<h4 class="center-align">No Cocktails Found!</h4>
 {% endif %}
 {% endblock %}
