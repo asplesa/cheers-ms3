@@ -26,14 +26,27 @@
     line-height: 2;
 }
 
-footer {
+/* ------- Footer ------- */
+.footer {
     position: absolute;
 	text-align: center;
-	width: 100%;
+    width: 100%;
+    margin-top: 20px;
 }
 
-footer a:hover {
-	color: green;
+.footer-icon a {
+    color: white;
+    margin-right: 5px;
+    padding-top: 5px;
+}
+
+.align {
+    text-align: center;
+}
+
+#copyright-text {
+    color: white;
+    text-align: center;
 }
 
 /* ------- Cocktail cards  ------- */
