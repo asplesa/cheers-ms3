@@ -1,3 +1,15 @@
+
+*{
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+.container {
+    padding: 0;
+    width: 100%;
+}
+
 .brand-logo {
     font-style: italic;
     font-weight: bold; 
@@ -42,4 +54,54 @@ footer a:hover {
     width: 100%;
     margin: 10px auto;
     text-align: center;
+}
+
+
+/* ------- Home Page hero-Image -------  */
+
+#hero-outer{
+    height:600px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+       -webkit-background-size: cover;
+       background-size: cover;
+}
+
+
+.hero-img {    
+    background: url('../images/hero-image.jpg') no-repeat center center;
+    background-size: cover;
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.cover-text {
+    color: white;
+    right: 10px;
+    position: absolute;
+    top: 60%;
+    background-color: rgba(19, 221, 86, 0.2);
+    width: 300px;
+    height: 200px;
+    bottom: 10px;
+    font-size: 100%;
+    border-radius: 15%;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.cover-text p {
+    font-style: italic;
+}
+
+.btn-wrapper {
+    position: relative;
+    left: 50px;
+    padding: 10px;
 }
