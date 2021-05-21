@@ -135,7 +135,7 @@ def logout():
     return redirect(url_for("login"))
 
 
-# ======== COCKTAIL PAGE ======== #
+# ======== INDIVIDUAL COCKTAIL PAGE ======== #
 @app.route("/cocktail/<cocktail_id>")
 def cocktail(cocktail_id):
 
@@ -165,6 +165,7 @@ def add_cocktail():
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_cocktail.html", categories=categories)
+
 
 # ------- Edit Cocktail Page ------- #
 
