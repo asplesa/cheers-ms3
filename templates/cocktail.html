@@ -3,19 +3,19 @@
 <h3 class="light green-text text-darken-4 center-align">{{ cocktail.cocktail_name.title() }} </h3>
 
 <!-- Cocktail Card -->
-<div class="row" style="width:50%;">
+  <div class="row" style="width:70%;">
     <div class="col s12">
-        <div class="card">
-            <!-- Cocktail Image -->
-            <div class="card-image"></div>
-                <img class="cocktail-img" src="{{ cocktail.cocktail_img }}" alt="{{ cocktail.cocktail_name }}"
+      <div class="card-panel">
+        <div class="card-image">
+          <img class="cocktail-img" src="{{ cocktail.cocktail_img }}" alt="{{ cocktail.cocktail_name }}"
                     onerror="this.onerror=null;this.src='../static/images/cocktail_default.jpg';">
-            </div>        
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
 
+<section>
 <!-- Cocktail Description -->
 <div class="row cocktail-content center-align">
    <div class="col s12">
@@ -26,7 +26,7 @@
    <!-- Cocktail Ingredients -->
    <div class="col s12 m12 l6">
       <h4 style="color: green;text-decoration: underline;">Ingredients:<br></h4>
-      {% for ingredient in cocktail.cocktail_ingredients.splitlines() %}
+      {% for ingredient in cocktail.cocktail_ingredients %}
       <h6>{{ ingredient }}</h6>
       {% endfor %}
    </div>
@@ -34,10 +34,11 @@
    <!-- Preparation Section -->
    <div class="col s12 m12 l6">
       <h4 style="color: green; text-decoration: underline">Preparation: <br></h4>
-      {% for step in cocktail.cocktail_instructions.splitlines() %}
+      {% for step in cocktail.cocktail_instructions %}
       <h6>{{ step }}</h6>
       {% endfor %}
    </div>
    
 
 {% endblock %}
+</section>

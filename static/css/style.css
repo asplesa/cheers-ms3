@@ -61,8 +61,21 @@ padding-top: 20px;
 .card-image img {
     margin-top: 10px;
     height: 180px;
-    object-fit: cover;
+    overflow: hidden;
     width: 100%;
+    object-fit: cover;
+}
+
+.cocktail-name {
+    color: black;
+    font-weight: bold;
+}
+
+#make-it {
+    color: green;
+     margin: auto;
+    font-weight: bold;
+
 }
 
 /* ------- Search Funtion on All Cocktails page  ------- */
@@ -78,13 +91,6 @@ padding-top: 20px;
     text-align: center;
 }
 
-/* ------- All Cocktails page cards  ------- */
-#make-it {
-    color: green;
-     margin: auto;
-    font-weight: bold;
-
-}
 
 /* ------- Home Page hero-Image -------  */
 
@@ -150,3 +156,4 @@ padding-top: 20px;
     }
 
 /* ------- Individual cocktail page -------  */
+
