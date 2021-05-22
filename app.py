@@ -154,7 +154,7 @@ def add_cocktail():
             "cocktail_description": request.form.get("cocktail_description"),
             "cocktail_img": request.form.get("cocktail_img"),
             "image_source": request.form.get("image_source"),
-            "cockail_serv": request.form.get("cockail_serv"),
+            "cocktail_serv": request.form.get("cocktail_serv"),
             "cocktail_ingredients": request.form.getlist("cocktail_ingredients"),
             "cocktail_instructions": request.form.getlist("cocktail_instructions"),
             "created_by": session["user"]
@@ -176,7 +176,9 @@ def edit_cocktail(cocktail_id):
             "category_name": request.form.get("category_name"),
             "cocktail_name": request.form.get("cocktail_name"),
             "cocktail_description": request.form.get("cocktail_description"),
-            "cockail_serv": request.form.get("cockail_serv"),
+            "cocktail_img": request.form.get("cocktail_img"),
+            "image_source": request.form.get("image_source"),
+            "cocktail_serv": request.form.get("cocktail_serv"),
             "cocktail_ingredients": request.form.getlist("cocktail_ingredients"),
             "cocktail_instructions": request.form.getlist("cocktail_instructions"),
             "created_by": session["user"]
