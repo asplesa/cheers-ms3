@@ -1,154 +1,154 @@
-  
-{% extends "base.html" %}
-{% block content %}
+  {% extends "base.html" %}
+  {% block content %}
 
-    <h3 class="light green-text text-darken-4 center-align">Edit Cocktail</h3>
+  <h3 class="light green-text text-darken-4 center-align">Edit Cocktail</h3>
 
-    <div class="row">
-        <form class="col s12" method="POST" action="{{ url_for('edit_cocktail', cocktail_id=cocktail._id) }}">
-            
-   <div class="card-panel edit-card">
+  <div class="row">
+      <form class="col s12" method="POST" action="{{ url_for('edit_cocktail', cocktail_id=cocktail._id) }}">
 
-            <!-- Cocktail Name -->
-            <div class="row">
-               <div class="input-field col s12">
-                  <i class="far fa-dot-circle prefix form-cocktail-icon-margin-1"></i>
-                  <label for="cocktail_name">Cocktail Name</label>
-                  <input type="text" class="form-control validate" id="cocktail_name"
-                     value="{{ cocktail.cocktail_name }}"
-                     name="cocktail_name" aria-describedby="cocktail_name" minlength="3" maxlength="25" required>
-               </div>
-            </div>
+          <div class="card-panel edit-card">
 
-            <!-- Category -->
-            <div class="row">
-               <div class="input-field col s12">
-                   <i class="far fa-folder-open prefix form-cocktail-icon-margin-1"></i>
-                  <select name="category_name" id="category_name" class="form-control validate" required>
-                     <option value="" disabled>Choose Category</option>
-                     {% for category in categories %}
-                            {% if category.category_name == cocktail.category_name %}
-                                <option value="{{ category.category_name }}" 
-                                selected>{{ category.category_name }}</option>
-                            {% else %}
-                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                            {% endif %}
-                     {% endfor %}
-                  </select>
-                  <label for="category_name">Cocktail Category</label>
-               </div>
-            </div>
+              <!-- Cocktail Name -->
+              <div class="row">
+                  <div class="input-field col s12">
+                      <i class="far fa-dot-circle prefix form-cocktail-icon-margin-1"></i>
+                      <label for="cocktail_name">Cocktail Name</label>
+                      <input type="text" class="form-control validate" id="cocktail_name"
+                          value="{{ cocktail.cocktail_name }}" name="cocktail_name" aria-describedby="cocktail_name"
+                          minlength="3" maxlength="25" required>
+                  </div>
+              </div>
+
+              <!-- Category -->
+              <div class="row">
+                  <div class="input-field col s12">
+                      <i class="far fa-folder-open prefix form-cocktail-icon-margin-1"></i>
+                      <select name="category_name" id="category_name" class="form-control validate" required>
+                          <option value="" disabled>Choose Category</option>
+                          {% for category in categories %}
+                          {% if category.category_name == cocktail.category_name %}
+                          <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                          {% else %}
+                          <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                          {% endif %}
+                          {% endfor %}
+                      </select>
+                      <label for="category_name">Cocktail Category</label>
+                  </div>
+              </div>
 
 
-            <!-- Brief Description -->
-            <div class="row">
-               <div class="input-field col s12">
-                  <i class="fas fa-concierge-bell prefix form-cocktail-icon-margin-1"></i>
-                  <label for="cocktail_description">Brief Description</label>
-                  <input type="text" value="{{ cocktail.cocktail_description }}" class="form-control validate" name="cocktail_description" 
-                  id="cocktail_description" aria-describedby="cocktail_description" maxlength="90" required>
-               </div>
-            </div>
+              <!-- Brief Description -->
+              <div class="row">
+                  <div class="input-field col s12">
+                      <i class="fas fa-concierge-bell prefix form-cocktail-icon-margin-1"></i>
+                      <label for="cocktail_description">Brief Description</label>
+                      <input type="text" value="{{ cocktail.cocktail_description }}" class="form-control validate"
+                          name="cocktail_description" id="cocktail_description" aria-describedby="cocktail_description"
+                          maxlength="90" required>
+                  </div>
+              </div>
 
-            <!-- Image URL -->
-            <div class="row">
-               <div class="input-field col s12">
-                  <i class="fas fa-camera prefix form-cocktail-icon-margin-1"></i>
-                  <label for="cocktail_img">Image URL</label>
-                  <input type="text" value="{{ cocktail.cocktail_img }}" class="form-control validate" name="cocktail_img" 
-                     id="cocktail_img" aria-describedby="cocktail_img" required>
-               </div>
-            </div>
+              <!-- Image URL -->
+              <div class="row">
+                  <div class="input-field col s12">
+                      <i class="fas fa-camera prefix form-cocktail-icon-margin-1"></i>
+                      <label for="cocktail_img">Image URL</label>
+                      <input type="text" value="{{ cocktail.cocktail_img }}" class="form-control validate"
+                          name="cocktail_img" id="cocktail_img" aria-describedby="cocktail_img" required>
+                  </div>
+              </div>
 
-            <!-- Image Source -->
-            <div class="row">
-               <div class="input-field col s12">
-                  <i class="far fa-copyright prefix form-cocktail-icon-margin-1"></i>
-                  <label for="image_source">Image Artist or Website</label>
-                  <input type="text" value="{{ cocktail.image_source }}" class="form-control validate" name="image_source" id="image_source"
-                     aria-describedby="image_source" required>
-               </div>
-            </div>
+              <!-- Image Source -->
+              <div class="row">
+                  <div class="input-field col s12">
+                      <i class="far fa-copyright prefix form-cocktail-icon-margin-1"></i>
+                      <label for="image_source">Image Artist or Website</label>
+                      <input type="text" value="{{ cocktail.image_source }}" class="form-control validate"
+                          name="image_source" id="image_source" aria-describedby="image_source" required>
+                  </div>
+              </div>
 
 
-            <!-- Servings quantity -->                
-            <div class="row">
-               <div class="input-field col s12">
-                  <i class="fas fa-mitten prefix form-cocktail-icon-margin-2"></i>
-                  <label for="cocktail_serv">Number of Servings</label>
-                  <input type="text" value="{{ cocktail.cocktail_serv }}" class="form-control validate" name="cocktail_serv" id="cocktail_serv"
-                     aria-describedby="cocktail_serv" required>
-               </div>
-            </div>
+              <!-- Servings quantity -->
+              <div class="row">
+                  <div class="input-field col s12">
+                      <i class="fas fa-mitten prefix form-cocktail-icon-margin-2"></i>
+                      <label for="cocktail_serv">Number of Servings</label>
+                      <input type="text" value="{{ cocktail.cocktail_serv }}" class="form-control validate"
+                          name="cocktail_serv" id="cocktail_serv" aria-describedby="cocktail_serv" required>
+                  </div>
+              </div>
 
-               
 
-               <!-- Ingredients -->
-               <div class="row edit-ingr-row">
+
+              <!-- Ingredients -->
+              <div class="row edit-ingr-row">
                   {% for ingredient in cocktail.cocktail_ingredients %}
                   <div class="input-field col s12 ingr-input">
-                     <!-- This if loop prevents the icon repetition -->
-                     {% if loop.index == 1 %}
-                     <i class="far fa-list-alt prefix form-cocktail-icon-margin-2"></i>
-                     {% endif %}
-                     <input id="cocktail_ingredients" name="cocktail_ingredients" type="text" 
-                     aria-describedby="cocktail_ingredients" minlength="3" value="{{ cocktail.cocktail_ingredients }}"
-                        class="validate" required>
-                     <!-- This if loop prevents the deletion of
+                      <!-- This if loop prevents the icon repetition -->
+                      {% if loop.index == 1 %}
+                      <i class="far fa-list-alt prefix form-cocktail-icon-margin-2"></i>
+                      {% endif %}
+                      <input id="cocktail_ingredients" name="cocktail_ingredients" type="text"
+                          aria-describedby="cocktail_ingredients" minlength="3"
+                          value="{{ cocktail.cocktail_ingredients }}" class="validate" required>
+                      <!-- This if loop prevents the deletion of
                         the first ingredient row -->
-                     {% if loop.index != 1 %}
-                     <a href="#" class="remove_field"><i class="far fa-trash-alt"></i></a>
-                     {% endif %}
+                      {% if loop.index != 1 %}
+                      <a href="#" class="remove_field"><i class="far fa-trash-alt"></i></a>
+                      {% endif %}
                   </div>
                   {% endfor %}
-               </div>
+              </div>
 
-               <!--Add Next Ingredient button-->
-               <div class="row rem-height">
+              <!--Add Next Ingredient button-->
+              <div class="row rem-height">
                   <div class="input-field col s1">
-                     <a href="#" class=" prefix">
-                     <i class="fas fa-plus add-edit-ingr-buttn append-btn-margin-1"></i>
-                     </a>
+                      <a href="#" class=" prefix">
+                          <i class="fas fa-plus add-edit-ingr-buttn append-btn-margin-1"></i>
+                      </a>
                   </div>
-               </div>
+              </div>
 
-               <!-- Preparation -->
-               <div class="row step-input edit-prep-row">
+              <!-- Preparation -->
+              <div class="row step-input edit-prep-row">
                   {% for step in cocktail.cocktail_instructions %}
                   <div class="input-field col s12">
-                     <!-- This if loop prevents the icon repetition -->
-                     {% if loop.index == 1 %}
-                     <i class="far fa-list-alt prefix  form-cocktail-icon-margin-2"></i>
-                     {% endif %}
-                     <textarea id="cocktail_instructions" name="cocktail_instructions" 
-                     class="form-control validate" aria-describedby="cocktail_instructions" required>{{ step }}</textarea>
-                     <!-- This if loop prevents the deletion of
+                      <!-- This if loop prevents the icon repetition -->
+                      {% if loop.index == 1 %}
+                      <i class="far fa-list-alt prefix  form-cocktail-icon-margin-2"></i>
+                      {% endif %}
+                      <textarea id="cocktail_instructions" name="cocktail_instructions" class="form-control validate"
+                          aria-describedby="cocktail_instructions" required>{{ step }}</textarea>
+                      <!-- This if loop prevents the deletion of
                         the first cocktail step -->
-                     {% if loop.index != 1 %}
-                     <a href="#" class="remove_field"><i class="far fa-trash-alt"></i></a>
-                     {% endif %}
+                      {% if loop.index != 1 %}
+                      <a href="#" class="remove_field"><i class="far fa-trash-alt"></i></a>
+                      {% endif %}
                   </div>
                   {% endfor %}
-               </div>
+              </div>
 
-               <!--Add Preparation Step button-->
-               <div class="row rem-height">
+              <!--Add Preparation Step button-->
+              <div class="row rem-height">
                   <div class="input-field col s1">
-                     <a href="#" class="add_edit_step_buttn prefix">
-                     <i class="fas fa-plus append-btn-margin-2"></i>
-                     </a>
+                      <a href="#" class="add_edit_step_buttn prefix">
+                          <i class="fas fa-plus append-btn-margin-2"></i>
+                      </a>
                   </div>
-               </div>
+              </div>
 
-               <!-- Save Changes/Cancel Buttons -->
-               <div class="row center-align">
+              <!-- Save Changes/Cancel Buttons -->
+              <div class="row center-align">
                   <div class="col s12">
-                     <button class="btn waves-effect waves-light present-buttn" type="submit" name="action">Save Changes</button>
-                     <a href="{{ url_for('get_cocktails') }}" class="back  btn btn-cancel" >Cancel</a>
+                      <button class="btn waves-effect waves-light present-buttn" type="submit" name="action">Save
+                          Changes</button>
+                      <a href="{{ url_for('get_cocktails') }}" class="back  btn btn-cancel">Cancel</a>
                   </div>
-               </div>
-            </div>
+              </div>
+          </div>
       </form>
-   </div>
-</section>
-{% endblock %}
+  </div>
+  </section>
+  {% endblock %}

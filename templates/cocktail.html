@@ -3,16 +3,16 @@
 <h3 class="light green-text text-darken-4 center-align">{{ cocktail.cocktail_name.title() }} </h3>
 
 <!-- Cocktail Card -->
-  <div class="row" style="width:70%;">
+<div class="row" style="width:70%;">
     <div class="col s12">
-      <div class="card-panel">
-        <div class="card-image">
-          <img class="cocktail-img" src="{{ cocktail.cocktail_img }}" alt="{{ cocktail.cocktail_name }}"
+        <div class="card-panel">
+            <div class="card-image">
+                <img class="cocktail-img" src="{{ cocktail.cocktail_img }}" alt="{{ cocktail.cocktail_name }}"
                     onerror="this.onerror=null;this.src='../static/images/cocktail_default.jpg';">
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
 
 <section>
@@ -40,5 +40,5 @@
         </div>
     </div>
 
-        {% endblock %}
+    {% endblock %}
 </section>
