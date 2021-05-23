@@ -92,6 +92,11 @@ padding-top: 20px;
 }
 
 
+.category-btns a {
+    margin: 3px;
+   
+}
+
 /* ------- Home Page hero-Image -------  */
 
 #hero-outer {
