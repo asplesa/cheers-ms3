@@ -18,7 +18,7 @@ The project is developed primarily using  **HTML** ,  **CSS, Python+Flask, Mongo
 
 [View the live project here.](https://cheersms3.herokuapp.com/)
 
-![Homepage](https://github.com/asplesa/cheers-ms3/static/images/readme/responsive.JPG)
+![Homepage](static/images/readme/responsive.JPG)
 
 ![](RackMultipart20210523-4-53ytne_html_892bc76665002c1a.gif)
 
