@@ -63,7 +63,7 @@ padding-top: 20px;
     height: 180px;
     overflow: hidden;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .cocktail-name {
@@ -159,4 +159,15 @@ padding-top: 20px;
 
 .form-cocktail-icon i {
 color: green;
+}
+
+
+
+/* ------- Profile page -------  */
+
+#profile-pic {
+    margin-top: 10px;
+    height: 100px;
+    overflow: hidden;
+    object-fit: contain;
 }

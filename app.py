@@ -137,15 +137,46 @@ def profile(username):
 
     if "user" in session.keys():
         if session["user"] == username:
-            recipes = list(
-                mongo.db.recipes.find({"created_by": username.lower()}))
+            cocktails = list(
+                mongo.db.cocktails.find({"created_by": username.lower()}))
 
     else:
         return redirect(url_for("login"))
 
     return render_template(
-        "profile.html", user=user, recipes=recipes
-    )
+        "profile.html", user=user, cocktails=cocktails)
+
+
+ # check for cocktails created by user / grant all access to admin
+    if "user" in session.keys():
+        if session["user"] == "admin":
+            cocktails = list(mongo.db.cocktails.find())
+        else:
+            cocktails = list(
+                mongo.db.cocktails.find({"created_by": username.lower()}))
+
+        # fetch the page number from request / set the page 1
+        page = int(request.args.get('page') or 1)
+        num = 6
+
+        # count documents for of pagination options
+        count = ceil(float(len(cocktails) / num))
+
+        # page - 1 checks that the first items can be found
+        start = (page - 1) * num
+        end = start + num
+        cocktails_display = cocktails[start:end]
+
+        return render_template(
+            "profile.html", user=user, cocktails=cocktails_display,
+            page=page, count=count, search=False)
+
+    else:
+        return redirect(url_for("login"))
+
+    return render_template(
+        "profile.html", user=user, cocktails=cocktails)
+
 
 
 # ------- EDIT PROFILE -------#
