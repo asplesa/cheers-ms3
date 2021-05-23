@@ -94,15 +94,15 @@ padding-top: 20px;
 
 /* ------- Home Page hero-Image -------  */
 
-#hero-outer{
+#hero-outer {
     height:600px;
     width: 100%;
     overflow: hidden;
     position: relative;
     background-repeat: no-repeat;
     background-position: center center;
-       -webkit-background-size: cover;
-       background-size: cover;
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
 
@@ -155,5 +155,9 @@ padding-top: 20px;
         display: block;
     }
 
-/* ------- Individual cocktail page -------  */
+/* ------- Add/Edit cocktail pages -------  */
+
+.form-cocktail-icon i {
+    color: green;
+}
 
