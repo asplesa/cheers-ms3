@@ -126,12 +126,12 @@ The data of this project are stored in my MongoDB database within three collecti
 
 ![Navbar](/static/images/readme/navbar.JPG)
 
-- **Carousel:** A carousel of scrolling images was used for a more visually engaging user experience. ![cocktail-time](https://github.com/asplesa/cheers-ms3/static/images/readme/cocktail-time.JPG)
+- **Carousel:** A carousel of scrolling images was used for a more visually engaging user experience. ![cocktail-time](/static/images/readme/cocktail-time.JPG)
 - **Social Media Links:** are on the footer of every page so easy access.
 - **Cocktail Recipes:** The recipes are displayed on responsive cards and include the name, category, an image (or a default image if none is available) and a link to try the cocktail.
 - **Search Feature:** Allows users to search by cocktail name or by category. When no results match the search, the text &quot;No Cocktails Found&quot; is displayed.
 
-![search-cocktails](/static/images/readme/search-cocktails.JPG)
+![search-cocktails](/static/images/readme/search-cocktails.jpg)
 
 - **Register:** The registration form takes the following inforkmation of the user to create an account :
 
@@ -227,7 +227,7 @@ This project was deployed to Heroku via the following steps:
 
 **Content**
 
-- All cocktail recipes were sourced from the [www.thecocktaildb.com](http://www.thecocktaildb.com/) database.
+- All cocktail recipes were sourced from the [TheCocktailDB](https://www.thecocktaildb.com/) database.
 
 - All business ideas and general development concepts were devised by me.
 
@@ -235,7 +235,7 @@ This project was deployed to Heroku via the following steps:
 
 - All Photographs excluding the cocktail recipes images were sourced from [Canva.com](https://www.canva.com/).
 - The logo was created in [Canva.com](https://www.canva.com/)
-- All cocktail image were sourced from the [www.thecocktaildb.com](http://www.thecocktaildb.com/) database.
+- All cocktail image were sourced from the [TheCocktailDB](https://www.thecocktaildb.com/) database.
 
 **Many thanks to:**
 
