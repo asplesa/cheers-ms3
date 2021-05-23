@@ -18,7 +18,7 @@ The project is developed primarily using  **HTML** ,  **CSS, Python+Flask, Mongo
 
 [View the live project here.](https://cheersms3.herokuapp.com/)
 
-![Homepage](static/images/readme/responsive.JPG)
+![Homepage](/static/images/readme/responsive.JPG)
 
 ![](RackMultipart20210523-4-53ytne_html_892bc76665002c1a.gif)
 
@@ -80,7 +80,7 @@ The project is developed primarily using  **HTML** ,  **CSS, Python+Flask, Mongo
 
 **Wireframes**
 
-Balsamiq was used to create wireframes of the site. These are be found [here](https://github.com/asplesa/cheers-ms3/blob/cc55b9ff039dde691e9752df35a0a8874c6ad9da/static/images/Cheers%21%20-%20web%20wireframe.pdf)
+Balsamiq was used to create wireframes of the site. These are be found ![here](/static/images/Cheers-web-wireframe.pdf)
 
 The initial wireframes consisted of 9 pages and wireframes were created from desktop, mobile and tablet.
 
@@ -124,14 +124,14 @@ The data of this project are stored in my MongoDB database within three collecti
 
 - **Navbar:** The navbar is visible and responsive in every page, and is consistent on every page due to the use of the jinga templating language. It displays the logo of the website and the options &quot;Home&quot;, &quot;All Cocktails&quot;, &quot;Log In&quot; and &quot;Register&quot; when the user is not logged in. Materializecss was used on the front end.
 
-![Navbar](https://github.com/asplesa/cheers-ms3/static/images/readme/navbar.JPG)
+![Navbar](/static/images/readme/navbar.JPG)
 
 - **Carousel:** A carousel of scrolling images was used for a more visually engaging user experience. ![cocktail-time](https://github.com/asplesa/cheers-ms3/static/images/readme/cocktail-time.JPG)
 - **Social Media Links:** are on the footer of every page so easy access.
 - **Cocktail Recipes:** The recipes are displayed on responsive cards and include the name, category, an image (or a default image if none is available) and a link to try the cocktail.
 - **Search Feature:** Allows users to search by cocktail name or by category. When no results match the search, the text &quot;No Cocktails Found&quot; is displayed.
 
-![search-cocktails](https://github.com/asplesa/cheers-ms3/static/images/readme/search-cocktails.JPG)
+![search-cocktails](/static/images/readme/search-cocktails.JPG)
 
 - **Register:** The registration form takes the following inforkmation of the user to create an account :
 
@@ -173,12 +173,11 @@ This would enhance the overall security and data protection on the site.
 - [Code Institute&#39;s Gitpod Template](https://github.com/Code-Institute-Org/gitpod-full-template) – the project template was generated from this.
 - [Heroku](https://www.heroku.com/) was used to deploy the platform.
 - [FontAwesome](https://fontawesome.com/) v5.13.1, was used for icons for aesthetic and UX purposes..
-- [Balsamiq](https://balsamiq.com/) was used to create the [wireframes](https://github.com/asplesa/cheers-ms3/blob/cc55b9ff039dde691e9752df35a0a8874c6ad9da/static/images/Cheers%21%20-%20web%20wireframe.pdf) during the design process.
+- [Balsamiq](https://balsamiq.com/) was used to create the ![wireframes](/static/images/Cheers-web-wireframe.pdf) during the design process.
 - [jQuery](https://jquery.com/) v3.6.0
 - [Google Chrome](https://www.google.com/intl/en_uk/chrome/) [Dev Tools](https://developers.google.com/web/tools/chrome-devtools) was used for debugging throughout the development process.
 - [Google Fonts](https://fonts.google.com/) was used to import the Work Sans font into the style.css file which is used for the logo.
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse) and [W.A.V.E](https://wave.webaim.org/)  were used to assess the site&#39;s accessibility.
-- [Screen Reader for Google Chrome](https://chrome.google.com/webstore/detail/screen-reader-for-google/nddfhonnmhcldcbmhbdldfpkbfpgjoeh/related?hl=en) was used to check screen-reader accessibility.
 - [W3C HTML Markup Validator](https://validator.w3.org/) was used to validate the HTML.
 - [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the CSS.
 - [HTML Formatter](https://www.webformatter.com/html)  html formatter to help keep things tidy
@@ -211,7 +210,7 @@ This project was deployed to Heroku via the following steps:
 - Open browser of choice.
 - Copy/Paste the address of **[Cheers! repository](https://github.com/asplesa/cheers-ms3)** in your search box.
 - When on the page, click on the &quot;Code&quot; button.
-- Copy the the | **HTTPS link** ](https://github.com/asplesa/cheers-ms3).
+- Copy the the [**HTTPS link**](https://github.com/asplesa/cheers-ms3).
 - Open your IDE and in your terminal, create a virtual environement supporting python and flask and activate it.
 - Type &quot;git clone&quot; and paste the **[HTTPS Link](https://github.com/asplesa/cheers-ms3.git)**.
 - Create an environment file called &quot;env.py&quot; and add :
