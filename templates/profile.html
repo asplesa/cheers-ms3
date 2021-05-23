@@ -1,14 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="row">
-        <div class="col s12 m8 offset-m2">
-            <div class="card-panel">
-                <h3 class="center-align light-green-text text-darken-4">
-                    {{ username }}'s Profile
-                </h3>
+<h3 class="light green-text text-darken-4 center-align">Your Profile</h3>
+
+<!-- User Card -->
+<div class="card shadow">
+   <div class="row">
+      <div class="col s12">
+         <h5 class="center-align"> {{ user.username.title() }}'s Profile</h5>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col s12 center-align">
+
+         <!-- Modal Elements to Edit/Delete profile -->
+         <a href="#modal-question" class="modal-trigger green btn ">Delete</a>
+         <div class="modal" id="modal-question">
+            <div class="modal-content">
+               <h4 class="page-indicator">Delete your profile?</h4>
+               <h6>Are you sure you want to delete your profile?</h6>
             </div>
-        </div>
-    </div>
+            <div class="modal-footer">
+               <a href="{{ url_for('delete_profile', username=user.username) }}" class="btn-small modal-close del">
+               Delete</a>
+               <a class="btn-small modal-close back">Go Back</a>
+            </div>
+         </div>
+         <a href="{{ url_for('edit_profile', username=user.username) }}" class="btn green edit-btn">Edit</a>
+      </div>
+   </div>
+</div>
+
+
 
 {% endblock %}

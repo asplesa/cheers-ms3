@@ -18,10 +18,21 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# ======== INDEX PAGE ======== #
+# ------- CHECKING USER FUNCTION -------#
+def actual_user(username):
+    if "user" in session.keys():
+        if session["user"] == username:
+            return True
+
+    return False
+
+@app.route("/")
+@app.route("/home")
+def home():
+    return render_template("index.html")
 
 
-# index cocktails
+# ------- INDEX PAGE -------#
 @app.route('/')
 def index():
 
@@ -30,8 +41,7 @@ def index():
     return render_template("index.html", cocktails=cocktails)
 
 
-# ======== COCKTAILS PAGE ======== #
-
+# ------- COCKTAILS PAGE -------#
 @app.route("/")
 @app.route("/get_cocktails")
 def get_cocktails():
@@ -39,7 +49,7 @@ def get_cocktails():
     return render_template("cocktails.html", cocktails=cocktails)
 
 
-# ======== Search Cocktails Function ======== #
+# ------- SEARCH COCKTAILS FUNCTION -------#
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -47,7 +57,7 @@ def search():
     return render_template("cocktails.html", cocktails=cocktails)
 
 
-# ======== Search Cocktails By Category ======== #
+# ------- SEARCH COCKTAILS BY CATEGORY -------#
 @app.route('/search_cocktails/<query>', methods=['GET', 'POST'])
 def search_cocktails(query):
     if search:
@@ -56,7 +66,8 @@ def search_cocktails(query):
 
     return render_template("cocktails.html", cocktails=cocktails)
 
-# ======== REGISTER PAGE ======== #
+
+# ------- REGISTER PAGE -------#
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -83,7 +94,7 @@ def register():
     return render_template("register.html")
 
 
-# ======== LOGIN PAGE ======== #
+# ------- LOGIN PAGE -------#
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -113,20 +124,72 @@ def login():
     return render_template("login.html")
 
 
-# ======== PROFILE PAGE ======== #
+# ------- PROFILE PAGE -------#
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
 
-    if session["user"]:
-        return render_template("profile.html", username=username)
+    # Display Username in session using DB data
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+
+    if not actual_user(username.lower()):
+        return redirect(url_for("login"))
+
+    if "user" in session.keys():
+        if session["user"] == username:
+            recipes = list(
+                mongo.db.recipes.find({"created_by": username.lower()}))
+
+    else:
+        return redirect(url_for("login"))
+
+    return render_template(
+        "profile.html", user=user, recipes=recipes
+    )
+
+
+# ------- EDIT PROFILE -------#
+@app.route("/edit_profile/<username>", methods=["GET", "POST"])
+def edit_profile(username):
+
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+
+    if not actual_user(username.lower()):
+        return redirect(url_for("login"))
+
+    # Update profile function
+    if request.method == "POST":
+        submit = {
+            "username": user["username"],
+            "email": user["email"],
+            "password": user["password"],
+        }
+        mongo.db.users.update({"username": session["user"]}, submit)
+        flash("Profile Updated!")
+
+        return render_template("profile.html", user=user)
+
+    if "user" in session:
+        return render_template("edit_profile.html", user=user)
 
     return redirect(url_for("login"))
+  
+
+# ------- DELETE PROFILE -------#
+@app.route("/delete_profile/<username>")
+def delete_profile(username):
 
 
-# ======== LOGOUT PAGE ======== #
+    mongo.db.users.remove({"username": username.lower()})
+    flash("Profile Deleted")
+    session.pop("user")
+
+    return redirect(url_for("register"))
+
+
+
+# ------- LOGOUT PAGE -------#
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -135,7 +198,7 @@ def logout():
     return redirect(url_for("login"))
 
 
-# ======== INDIVIDUAL COCKTAIL PAGE ======== #
+# ------- INDIVIDUAL COCKTAIL PAGE -------#
 @app.route("/cocktail/<cocktail_id>")
 def cocktail(cocktail_id):
 
@@ -168,9 +231,10 @@ def add_cocktail():
 
 
 # ------- Edit Cocktail Page ------- #
-
 @app.route("/edit_cocktail/<cocktail_id>", methods=["GET", "POST"])
 def edit_cocktail(cocktail_id):
+
+    
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
@@ -242,6 +306,7 @@ def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Deleted")
     return redirect(url_for("get_categories"))
+
 
 
 if __name__ == "__main__":
