@@ -48,4 +48,42 @@
 </div>
 
 
+<!-- Access the Cocktails created by the user-->
+<div class="row">
+    <div class="col s12 head-text center-align">
+        <h4>My Cocktails</h4>
+    </div>
+    </div>
+
+    <div class="row" style="max-width: 90%;">
+
+        {% for cocktail in cocktails %}
+        <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ cocktail.cocktail_img }}"
+                        onerror="this.onerror=null;this.src='../static/images/cocktail_default.jpg';"
+                        alt="{{ cocktail.cocktail_name }}">
+                </div>
+                <!-- Cocktail/Category Name -->
+                <div class="card-content">
+                    <a href="{{ url_for('cocktail', cocktail_id=cocktail._id) }}">
+                        <h6 class="cocktail-name">{{ cocktail.cocktail_name }}</h6>
+                    </a>
+                    <h6>{{ cocktail.category_name }}</h6>
+
+                    {% if session.user == 'admin' or session.user|lower == cocktail.created_by|lower %}
+                    <button class="btn btn-small green btn-danger m-2" data-toggle="modal"
+                        data-target="#delete_cocktail_{{cocktail._id}}"><i class="fas fa-trash"></i></button>
+                    {% endif %}
+                    {% if session.user|lower == cocktail.created_by|lower %}
+                    <a href="{{ url_for('edit_cocktail', cocktail_id=cocktail._id)}}"
+                        class="btn  btn-small orange btn-success m-2"><i class="fas fa-edit"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+      
+        {% endfor %}
+
 {% endblock %}

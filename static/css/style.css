@@ -219,3 +219,6 @@ color: green;
     object-fit: contain; 
 } 
 
+.card-content {
+    text-align: center;
+}
