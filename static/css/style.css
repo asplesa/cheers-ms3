@@ -222,3 +222,7 @@ color: green;
 .card-content {
     text-align: center;
 }
+
+.row col {
+    padding-bottom: 2px;
+}

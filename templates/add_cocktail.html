@@ -7,10 +7,10 @@
       <form class="form-width col s12" method="POST" action="{{ url_for('add_cocktail') }}">
           <div class="card-panel edit-card">
 
-              <!-- Cock"tail Name -->
+              <!-- Cocktail Name -->
               <div class="row">
                   <div class="input-field col s12">
-                      <i class="far fa-dot-circle prefix form-cocktail-icon margin-1"></i>
+                      <i class="far fa-dot-circle prefix green-text form-cocktail-icon margin-1"></i>
                       <label for="cocktail_name">Cocktail Name</label>
                       <input type="text" class="form-control validate" id="cocktail_name" name="cocktail_name"
                           aria-describedby="cocktail_name" minlength="3" maxlength="25" required>
@@ -20,7 +20,7 @@
               <!-- Select Category -->
               <div class="row">
                   <div class="input-field col s12">
-                      <i class="far fa-folder-open prefix form-cocktail-icon-margin-1"></i>
+                      <i class="far fa-folder-open prefix green-text form-cocktail-icon-margin-1"></i>
                       <select name="category_name" id="category_name" class=" form-control validate" required>
                           <option value="" disabled selected>Choose Category</option>
                           {% for category in categories %}
@@ -31,13 +31,10 @@
                   </div>
               </div>
 
-
-
-
               <!-- Brief Description -->
               <div class="row">
                   <div class="input-field col s12">
-                      <i class="fas fa-concierge-bell prefix form-cocktail-icon-margin-1"></i>
+                      <i class="fas fa-concierge-bell green-text prefix form-cocktail-icon-margin-1"></i>
                       <label for="cocktail_description">Brief Description</label>
                       <input type="text" class="form-control validate" name="cocktail_description"
                           id="cocktail_description" aria-describedby="cocktail_description" maxlength="90" required>
@@ -47,7 +44,7 @@
               <!-- Image URL -->
               <div class="row">
                   <div class="input-field col s12">
-                      <i class="fas fa-camera prefix form-cocktail-icon-margin-1"></i>
+                      <i class="fas fa-camera prefix green-text form-cocktail-icon-margin-1"></i>
                       <label for="cocktail_img">Image URL</label>
                       <input type="text" class="form-control validate" name="cocktail_img" id="cocktail_img"
                           aria-describedby="cocktail_img" required>
@@ -57,7 +54,7 @@
               <!-- Image Source -->
               <div class="row">
                   <div class="input-field col s12">
-                      <i class="far fa-copyright prefix form-cocktail-icon-margin-1"></i>
+                      <i class="far fa-copyright prefix green-text form-cocktail-icon-margin-1"></i>
                       <label for="image_source"> Artist or Website</label>
                       <input type="text" class="form-control validate" name="image_source" id="image_source"
                           aria-describedby="image_source" required>
@@ -68,7 +65,7 @@
               <!-- Servings quantity -->
               <div class="row">
                   <div class="input-field col s12">
-                      <i class="fas fa-mitten prefix form-cocktail-icon-margin-2"></i>
+                      <i class="fas fa-mitten prefix green-text form-cocktail-icon-margin-2"></i>
                       <label for="cocktail_serv">Number of Servings</label>
                       <input type="text" class="form-control validate" name="cocktail_serv" id="cocktail_serv"
                           aria-describedby="cocktail_serv" required>
@@ -77,42 +74,26 @@
 
 
               <!-- Ingredients -->
-              <div class="row ingredient-row">
-                  <div class="input-field col s12 ingr-input">
-                      <i class="far fa-list-alt prefix form-cocktail-icon-margin-2"></i>
+              <div class="row">
+                  <div class="input-field col s12">
+                      <i class="far fa-list-alt prefix green-text form-cocktail-icon-margin-2"></i>
                       <label for="cocktail_ingredients">Ingredients</label>
                       <input type="text" class="form-control validate" name="cocktail_ingredients"
                           id="cocktail_ingredients" aria-describedby="cocktail_ingredients" minlength="3" required>
                   </div>
               </div>
 
-              <!--Add Ingredient button-->
-              <div class="row rem-height">
-                  <div class="input-field col s1">
-                      <a href="#" class=" prefix">
-                          <i class="fas fa-plus add-ingr-buttn append-btn-margin-1"></i>
-                      </a>
-                  </div>
-              </div>
 
               <!-- Preparation -->
               <div class="row prep-row">
-                  <div class="input-field col s12 step-input">
-                      <i class="far fa-list-alt prefix form-cocktail-icon-margin-2"></i>
+                  <div class="input-field col s12">
+                      <i class="far fa-list-alt prefix green-text form-cocktail-icon-margin-2"></i>
                       <label for="cocktail_instructions">Preparation</label>
                       <input type="text" class="form-control validate" name="cocktail_instructions"
                           id="cocktail_instructions" aria-describedby="cocktail_instructions" required>
                   </div>
               </div>
 
-              <!--Add Preparation Step button-->
-              <div class="row rem-height">
-                  <div class="input-field col s1">
-                      <a href="#" class="add-step-buttn prefix">
-                          <i class="fas fa-plus append-btn-margin-2"></i>
-                      </a>
-                  </div>
-              </div>
 
               <!-- Add/Back to Cocktails Buttons -->
               <div class="row center-align">
