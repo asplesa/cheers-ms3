@@ -17,7 +17,7 @@
                         characters</span>
                 </div>
             </div>
-           
+
             <!-- password -->
             <div class="row">
                 <div class="input-field col s12">
@@ -28,23 +28,23 @@
                     <span class="helper-text" data-error="invalid" data-success="right">Between 5 and 15
                         characters</span>
                 </div>
-            </div>    
-                <!-- email -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-envelope-square prefix green-text text-lighten-2"></i>
-                        <input id="email" name="email" type="text" class="validate" required>
-                        <label for="email">Email</label>
-                    </div>
+            </div>
+
+            <!-- email -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-envelope-square prefix green-text text-lighten-2"></i>
+                    <input id="email" name="email" type="text" class="validate" required>
+                    <label for="email">Email</label>
                 </div>
             </div>
 
-            <!-- register -->
-            <div class="row">
-                <button onsubmit="return sendMail(this);" type="submit" class="col s12 btn-large green">
-                    Register <i class="fas fa-sign-in-alt"></i>
-                </button>
-            </div>
+        </div>
+        <!-- register -->
+        <div class="row">
+            <button onsubmit="return sendMail(this);" type="submit" class="col s12 btn-large green">
+                Register <i class="fas fa-sign-in-alt"></i>
+            </button>
         </div>
     </form>
 </div>
@@ -57,6 +57,6 @@
             <a href="{{ url_for('login') }}" class="light-green-text text-darken-4">Log In</a>
         </p>
     </div>
-</div>
 
+</div>
 {% endblock %}

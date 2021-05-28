@@ -17,8 +17,6 @@
   </head>
 
   <body>
-
-      <header>
           <!-- top navbar -->
           <div class="navbar-fixed">
               <nav class="green">
@@ -64,7 +62,6 @@
               <li><a href="{{ url_for('register') }}">Register</a></li>
               {% endif %}
           </ul>
-      </header>
 
       <section>
           <!-- flash messages -->
@@ -104,13 +101,16 @@
                           </a>
                       </div>
                   </div>
-              </div class="center-align">
-              <p id="copyright-text" style="text-align: center">
-                  Copyright &copy;<script>
-                      document.write(new Date().getFullYear())
-                  </script> Cheers</p>
-          </div>
-      </footer>
+                  <div class="center-align">
+                      <p id="copyright-text" style="text-align: center">
+                          Copyright &copy;<script>
+                              document.write(new Date().getFullYear())
+                          </script> Cheers</p>
+                </div>
+           </div>
+        </div>     
+      
+        </footer>
 
 
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"

@@ -26,6 +26,7 @@ def actual_user(username):
 
     return False
 
+
 @app.route("/")
 @app.route("/home")
 def home():
@@ -105,7 +106,7 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome back, {}!".format(
                         request.form.get("username")))
@@ -146,8 +147,7 @@ def profile(username):
     return render_template(
         "profile.html", user=user, cocktails=cocktails)
 
-
- # check for cocktails created by user / grant all access to admin
+    # check for cocktails created by user / grant all access to admin
     if "user" in session.keys():
         if session["user"] == "admin":
             cocktails = list(mongo.db.cocktails.find())
@@ -178,7 +178,6 @@ def profile(username):
         "profile.html", user=user, cocktails=cocktails)
 
 
-
 # ------- EDIT PROFILE -------#
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
@@ -205,19 +204,17 @@ def edit_profile(username):
         return render_template("edit_profile.html", user=user)
 
     return redirect(url_for("login"))
-  
+
 
 # ------- DELETE PROFILE -------#
 @app.route("/delete_profile/<username>")
 def delete_profile(username):
-
 
     mongo.db.users.remove({"username": username.lower()})
     flash("Profile Deleted")
     session.pop("user")
 
     return redirect(url_for("register"))
-
 
 
 # ------- LOGOUT PAGE -------#
@@ -232,7 +229,6 @@ def logout():
 # ------- INDIVIDUAL COCKTAIL PAGE -------#
 @app.route("/cocktail/<cocktail_id>")
 def cocktail(cocktail_id):
-
 
     cocktail = mongo.db.cocktails.find_one({"_id": ObjectId(cocktail_id)})
     print(cocktail)
@@ -249,8 +245,10 @@ def add_cocktail():
             "cocktail_img": request.form.get("cocktail_img"),
             "image_source": request.form.get("image_source"),
             "cocktail_serv": request.form.get("cocktail_serv"),
-            "cocktail_ingredients": request.form.getlist("cocktail_ingredients"),
-            "cocktail_instructions": request.form.getlist("cocktail_instructions"),
+            "cocktail_ingredients": request.form.getlist
+            ("cocktail_ingredients"),
+            "cocktail_instructions": request.form.getlist
+            ("cocktail_instructions"),
             "created_by": session["user"]
         }
         mongo.db.cocktails.insert_one(cocktail)
@@ -265,7 +263,6 @@ def add_cocktail():
 @app.route("/edit_cocktail/<cocktail_id>", methods=["GET", "POST"])
 def edit_cocktail(cocktail_id):
 
-    
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
@@ -274,17 +271,19 @@ def edit_cocktail(cocktail_id):
             "cocktail_img": request.form.get("cocktail_img"),
             "image_source": request.form.get("image_source"),
             "cocktail_serv": request.form.get("cocktail_serv"),
-            "cocktail_ingredients": request.form.getlist("cocktail_ingredients"),
-            "cocktail_instructions": request.form.getlist("cocktail_instructions"),
+            "cocktail_ingredients": request.form.getlist
+            ("cocktail_ingredients"),
+            "cocktail_instructions": request.form.getlist
+            ("cocktail_instructions"),
             "created_by": session["user"]
         }
         mongo.db.cocktails.update({"_id": ObjectId(cocktail_id)}, submit)
         flash("Cocktail Updated!")
-        
 
-    cocktail = mongo.db.cocktails.find_one({"_id": ObjectId(cocktail_id)}) 
+    cocktail = mongo.db.cocktails.find_one({"_id": ObjectId(cocktail_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_cocktail.html", cocktail=cocktail, categories=categories)
+    return render_template("edit_cocktail.html",
+                           cocktail=cocktail, categories=categories)
 
 
 # ------- Delete Cocktail Page ------- #
