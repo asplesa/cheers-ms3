@@ -59,15 +59,11 @@
                     <!-- Edit/Delete Cocktail-->
                     <div>
                         {% if session.user == 'admin' or session.user|lower == cocktail.created_by|lower %}
-                        <a href="{{ url_for('edit_cocktail', cocktail_id=cocktail._id) }}" class="green btn">Edit</a>
-                        <a href="{{ url_for('delete_cocktail', cocktail_id=cocktail._id) }}"
-                            class="orange darken-1 btn">Delete</a>
+                           <a href="{{ url_for('edit_cocktail', cocktail_id=cocktail._id)}}"
+                        class="btn  btn-small orange btn-success m-2"><i class="fas fa-edit"></i></a>
+                        <button class="btn btn-small green btn-danger m-2" data-toggle="modal"
+                        data-target="#delete_cocktail_{{cocktail._id}}"><i class="fas fa-trash"></i></button>
                         {% endif %}
-
-
-
-
-
 
                     </div>
 
