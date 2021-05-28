@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+  <div class="card shadow center-align">
+      <div class="col s12">
+          <div class="card" style="width:50%;">
+              <div class="card-image">
+                  <img src="../static/images/broken_cocktail.jpg" alt="broken cocktail">
+                  <span class="card-title">404 - Page not found</span>
+              </div>
+              <div class="card-content">
+                  <h5 class="center-align">Sorry, the page you are looking for can't be found</h5>
+                  <h5 class="center-align"><a href="{{ url_for('get_index') }}" class="black-cta">Return Home</a></h5>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+{% endblock %}
