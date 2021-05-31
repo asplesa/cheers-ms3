@@ -76,10 +76,10 @@
           {% endwith %}
       </section>
 
-      <main class="container">
+      <div class="container">
           {% block content %}
           {% endblock %}
-      </main>
+      </div>
 
       <!-- Footer -->
       <footer class="green">
@@ -88,15 +88,19 @@
                   <div class="col-md-12 py-3">
                       <div class="mb-5 text-center footer-icon">
                           <a class="fb-icon" href="https://www.facebook.com/" target="_blank">
-                              <i class="fab fa-facebook-f fa-lg mr-md-5 mr-3"> </i>
+                              <i class="fab fa-facebook-f fa-lg mr-md-5 mr-3"></i>
+                              <span class="sr-only">Facebook</span>
                           </a>
                           <a class="tw-icon" href="https://www.twitter.com/" target="_blank">
                               <i class="fab fa-twitter fa-lg mr-md-5 mr-3"> </i>
+                              <span class="sr-only">Twitter</span>
                           </a>
                           <a class="ins-icon" href="https://www.instagram.com/" target="_blank">
                               <i class="fab fa-instagram fa-lg mr-md-5 mr-3"> </i>
+                              <span class="sr-only">Instagram</span>
                           </a>
                           <a class="pin-icon" href="https://www.pinterest.com/" target="_blank">
+                            <span class="sr-only">Pinterest</span>
                               <i class="fab fa-pinterest fa-lg"> </i>
                           </a>
                       </div>
