@@ -188,7 +188,7 @@ This would enhance the overall security and data protection on the site.
 
 # **Testing**
 
-Please view the complete testing process in this separate document.
+Please view the complete testing process in [this separate document](https://github.com/asplesa/cheers-ms3/blob/master/readme/testing.md).
 
 # **Deployment**
 

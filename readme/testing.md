@@ -7,7 +7,8 @@ The testing process below includes:
 - Checking responsiveness of design on all screen sizes
 - Manually testing the functionality of all links
 
-To return to the previous document, please click ![Readme](README.md)
+To return to the previous document, please click [here](https://github.com/asplesa/cheers-ms3/blob/master/README.md).
+
 
 **Table of contents**
 
