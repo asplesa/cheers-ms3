@@ -27,14 +27,14 @@ To return to the previous document, please click [here](https://github.com/asple
 - [**Manual tests**](#Manual-tests)
   - [Navigation](#Navigation)
   - [Home](#Home)
-  - [Recipes](#All-Cocktails)
-  - [Recipe](#Cocktail)
+  - [Cocktails](#All-Cocktails)
+  - [Cocktail](#Cocktail)
   - [Login](#Login)
   - [Register](#Register)
   - [Profile](#Profile)
   - [Edit profile](#Edit-profile)
-  - [Add recipe](#Add-New-Cocktail)
-  - [Edit recipe](#Edit-cocktail)
+  - [Add cocktail](#Add-New-Cocktail)
+  - [Edit cocktail](#Edit-cocktail)
 - [**Bugs**](#Bugs)
 
 **Testing user stories**
