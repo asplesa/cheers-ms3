@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Catamaran&family=Work+Sans&display=swap');
 
 /* ------- General  ------- */
-*{
-    margin: auto 0;
-    padding:0;
-    border:0;
-}
-
 body {
     display: flex;
     min-height: 100vh;
@@ -185,9 +179,9 @@ padding-top: 20px;
 }
 
 .btn-wrapper {
-    position: relative;
+    position: absolute !important;
     left: 50px;
-    padding: 20px;
+    padding: 2px;
     bottom: 10px;
     width: fit-content;
 }
