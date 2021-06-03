@@ -5,16 +5,16 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+}
 
-  main {
-    margin: 1 0 auto;
-  }
+main {
+    margin: 0 auto;
+}
 
 .brand-logo {
     font-family: 'Work Sans', sans-serif;
     font-style: italic;
-    font-weight: bold; 
+    font-weight: bold;
     margin-left: 10px;
 }
 
@@ -41,16 +41,16 @@ h5 {
 
 
 hr.solid {
-  border-top: 3px solid #f5a848;
-  width: 10px;
+    border-top: 3px solid #f5a848;
+    width: 10px;
 }
 
 .block-divider {
-  width: 150px;
-  height: 2px;
-  background-color: #f5a848;
-  border: 5px;
-  margin: 0 auto;
+    width: 150px;
+    height: 2px;
+    background-color: #f5a848;
+    border: 5px;
+    margin: 0 auto;
 }
 
 .valign-wrapper {
@@ -64,23 +64,23 @@ hr.solid {
 
 
 .why-us-icon {
-  font-size: 30px;   
-  margin: auto;
-  padding: 2px;
+    font-size: 30px;
+    margin: auto;
+    padding: 2px;
 }
 
 /* ------- Footer ------- */
 .footer {
-	text-align: center;
+    text-align: center;
     width: 100%;
     margin-top: 10px;
     position: fixed;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
 }
 
 .footer-icon {
-padding-top: 20px;
+    padding-top: 20px;
 }
 
 
@@ -115,7 +115,7 @@ padding-top: 20px;
 
 #make-it {
     color: green;
-     margin: auto;
+    margin: auto;
     font-weight: bold;
 
 }
@@ -136,7 +136,7 @@ padding-top: 20px;
 
 .category-btns a {
     margin: 3px;
-   
+
 }
 
 .input-field {
@@ -146,17 +146,17 @@ padding-top: 20px;
 /* ------- Home Page hero-Image -------  */
 
 #hero-outer {
-    height:600px;
+    height: 600px;
     width: 100%;
     overflow: hidden;
     position: relative;
     background-repeat: no-repeat;
     background-position: center center;
- 
+
 }
 
 
-.hero-img {    
+.hero-img {
     background: url('../images/hero-image.jpg') no-repeat center center;
     background-size: cover;
     height: 600px;
@@ -169,8 +169,8 @@ padding-top: 20px;
 .cover-text {
     color: white;
     right: 10px;
-    position: absolute;
-    bottom: 50px;
+    position: absolute !important;
+    top: 45%;
     background-color: rgba(245, 158, 72, 0.9);
     width: 320px;
     height: 150px;
@@ -201,30 +201,30 @@ padding-top: 20px;
 @media screen and (max-width: 420px) {
     .valign-wrapper {
         display: block;
-    
+
     }
 
-/* ------- Add/Edit cocktail pages -------  */
+    /* ------- Add/Edit cocktail pages -------  */
 
-.form-cocktail-icon i {
-color: green;
-}
+    .form-cocktail-icon i {
+        color: green;
+    }
 
 
 
-/* ------- Profile page -------  */
+    /* ------- Profile page -------  */
 
-#profile-pic {
-    margin-top: 10px;
-    height: 100px;
-    overflow: hidden;
-    object-fit: contain; 
-} 
+    #profile-pic {
+        margin-top: 10px;
+        height: 100px;
+        overflow: hidden;
+        object-fit: contain;
+    }
 
-.card-content {
-    text-align: center;
-}
+    .card-content {
+        text-align: center;
+    }
 
-.row col {
-    padding-bottom: 2px;
-}
+    .row col {
+        padding-bottom: 2px;
+    }
