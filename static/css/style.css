@@ -139,6 +139,10 @@ padding-top: 20px;
    
 }
 
+.input-field {
+    margin: auto;
+}
+
 /* ------- Home Page hero-Image -------  */
 
 #hero-outer {
