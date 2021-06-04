@@ -9,7 +9,7 @@ body {
 }
 
 main {
-  flex: 0 auto;
+  flex: 1 0 auto;
 }
 
 
@@ -227,12 +227,3 @@ hr.solid {
     .row col {
         padding-bottom: 2px;
     }
-
-
-    @media (min-width: 768px) and (min-height: 500px) {
-  .page-footer {
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-  }
-}
