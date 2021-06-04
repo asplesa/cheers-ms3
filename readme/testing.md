@@ -171,9 +171,11 @@ When All Navigation links were manually checked and work. All footer social link
 
 ### Bugs
 
-- The ingredients on the Edit Cocktail page are displaying as arrays. NOT FIXED CURRENTLY.
+- The modal for delete cocktail on the profile was displying the content for the delete profile modal. This was fixed by ensuring the id on 
+    the modal was the same as the id on the button. 
 - The hero image wouldn't span the whole width of the page, fixed by adding the fluid class to the container
 - The cocktail cards were displaying as different sizes depending on the content. Fixed by adding the materialize built in card sizes.
+- The footer was not sticking to the bottom of the page, the custom css from materialize was added.
 
 I didn&#39;t find any other bugs.
 
